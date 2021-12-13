@@ -38,7 +38,7 @@ public class Armazenamento {
     }
     public ListaAmigos db_seed_amigos(ListaAmigos lista_amigos) {
         String tabela = "lista_amigo";
-        ListaAmigos table_amigos = this.get_lista_amigos(tabela);
+        ListaAmigos table_amigos = this.get_lista_amigos();
         if (table_amigos == null) {
             table_amigos = lista_amigos;
             table_amigos.addAmigo("Jorge");
@@ -48,7 +48,7 @@ public class Armazenamento {
         return table_amigos;
     }
 
-    public ListaAmigos get_lista_amigos(String table) {
+    public ListaAmigos get_lista_amigos() {
         try {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             ListaAmigos arrayList = gson.fromJson(new FileReader(this.projectPath + "/src/Armazenamento/db/lista_amigo.json"), ListaAmigos.class);
@@ -59,7 +59,7 @@ public class Armazenamento {
             return null;
         }
     }
-    public ListaEmprestimos get_lista_emprestimo(String table) {
+    public ListaEmprestimos get_lista_emprestimo() {
         try {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             ListaEmprestimos arrayList = gson.fromJson(new FileReader(this.projectPath + "/src/Armazenamento/db/lista_amigo.json"), ListaEmprestimos.class);
@@ -70,7 +70,7 @@ public class Armazenamento {
             return null;
         }
     }
-    public Biblioteca get_biblioteca(String table) {
+    public Biblioteca get_biblioteca() {
         try {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             Biblioteca arrayList = gson.fromJson(new FileReader(this.projectPath + "/src/Armazenamento/db/lista_amigo.json"), Biblioteca.class);

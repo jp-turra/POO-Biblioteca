@@ -9,7 +9,7 @@ import Item.*;
 
 public class App {
 
-    private static Biblioteca bib = new Biblioteca("Biblioteca Pessoal");
+    private static Biblioteca biblioteca = new Biblioteca("Biblioteca Pessoal");
 	private static ListaEmprestimos emprestimos = new ListaEmprestimos();
 	private static ListaAmigos amigos = new ListaAmigos();
 	protected static int menu;
@@ -18,7 +18,10 @@ public class App {
     public static void main(String[] args) throws Exception {
 
 		amigos = (ListaAmigos) armazenamento.db_seed_amigos(amigos);
+		emprestimos = armazenamento.get_lista_emprestimo();
+		biblioteca = armazenamento.get_biblioteca();
 		ArrayList<Amigo> alAmigos = amigos.getListaAmigos();
+		
 		Scanner scanner = new Scanner(System.in);		
 		do {
 			try {
@@ -34,6 +37,7 @@ public class App {
 					break;
 				case 1:
 					// Cadastrar Item
+					biblioteca.adicionarItem();
 					break;
 				case 2:
 					// Cadastrar Amigo
@@ -56,6 +60,9 @@ public class App {
 				default:
 					break;
 			}
+			armazenamento.set_table("biblioteca", biblioteca);
+			armazenamento.set_table("lista_amigo", amigos);
+			armazenamento.set_table("lista_emprestimo", emprestimos);
 		} while (menu > 0);
 		scanner.close();
     }

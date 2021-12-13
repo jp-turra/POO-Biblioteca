@@ -5,10 +5,9 @@ public abstract class Item {
 	private String tituloItem;
 	private Disponibilidade dispItem;
 	
-	public Item(String titulo) {
+	public Item(String titulo, int id) {
 		this.tituloItem = titulo;
+		this.IdItem = id;
 		this.dispItem = Disponibilidade.DISPONIVEL;
-		// TODO: Função para retornar o valor incremental do id
-	}
-	
+	}	
 }
