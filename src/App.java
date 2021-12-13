@@ -20,7 +20,6 @@ public class App {
 		amigos = (ListaAmigos) armazenamento.db_seed_amigos(amigos);
 		emprestimos = armazenamento.get_lista_emprestimo();
 		biblioteca = armazenamento.get_biblioteca();
-		ArrayList<Amigo> alAmigos = amigos.getListaAmigos();
 
 		Scanner scanner = new Scanner(System.in);		
 		do {
@@ -31,41 +30,34 @@ public class App {
 				System.out.println("Entrada Inválida, tente novamente.");
 				menu = 8;
 			}
-			switch (menu) {
-				case 0:
-					System.out.println("Até logo!!");
-					break;
-				case 1:
-					// Cadastrar Item
-					biblioteca.adicionarItem();
-					break;
-				case 2:
-					// Cadastrar Amigo - Rede de Predição
-					System.out.println("\nInsira o nome do seu amigo: ");
-					String nome = scanner.nextLine();
-					amigos.addAmigo(nome);
-					break;
-				case 3:
-					// Cadastrar Emprestimo
-					int item_id = mostrarMenuBiblioteca(scanner);
-					int amigo_id = mostrarMenuAmigos(scanner);
-					
-					emprestimos.registrar(item_id, amigo_id);
-					break;
-				case 4:
-					// Cadastrar Devolução
-					break;
-				case 5:
-					// Mostrar Itens emprestados atualmente
-					break;
-				case 6:
-					// Mostrar histórico de emprestimos
-					break;
-				case 7:
-					// Mostrar itens da biblioteca
-					break;
-				default:
-					break;
+			if (menu == 0) {
+				System.out.println("Até logo!!");
+			} else if (menu == 1) {
+				// Cadastrar Item
+				biblioteca.adicionarItem();
+			} else if (menu == 2) {
+				// Cadastrar Amigo - Rede de Predição
+				System.out.println("\nInsira o nome do seu amigo: ");
+				String nome = scanner.nextLine();
+				amigos.addAmigo(nome);
+			} else if (menu == 3) {
+				// Cadastrar Emprestimo
+				int item_id = mostrarMenuBiblioteca(scanner);
+				int amigo_id = mostrarMenuAmigos(scanner);
+				
+				emprestimos.registrar(item_id, amigo_id);
+			} else if (menu == 4) {
+				// Cadastrar Devolução
+				System.out.println("\nInsira o id do item emprestado: ");
+				int id = Integer.parseInt(scanner.nextLine());
+				emprestimos.devolver(id);
+				System.out.println(emprestimos);
+			} else if (menu == 5) {
+				// Mostrar Itens emprestados atualmente
+			} else if (menu == 6) {
+				// Mostrar histórico de emprestimos
+			} else if (menu == 7) {
+				// Mostrar itens da biblioteca
 			}
 			armazenamento.set_table("biblioteca", biblioteca);
 			armazenamento.set_table("lista_amigo", amigos);
