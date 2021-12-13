@@ -11,8 +11,13 @@ public class Emprestimo {
 	private LocalDate dataEmprestimo;
 	private LocalDate dataDevolucao;
 	
-	// para a equipe pensar nesta repetição, pois pode-se obter os objetos pelo IDs
+	// para a equipe pensar nesta repetiï¿½ï¿½o, pois pode-se obter os objetos pelo IDs
 	private Item item;
 	private Amigo amigo;
 
+	public Emprestimo(int item_id, int amigo_id) { 
+		this.idAmigo = amigo_id;
+		this.idItem = item_id;
+		this.dataEmprestimo = LocalDate.now(); 
+	} 
 }

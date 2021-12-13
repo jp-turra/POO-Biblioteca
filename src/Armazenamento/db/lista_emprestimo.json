@@ -1,3 +1,14 @@
 {
-  "alEmprestimos": []
+  "alEmprestimos": [
+    {
+      "idAmigo": 1,
+      "idItem": 4,
+      "dataEmprestimo": {
+        "year": 2021,
+        "month": 12,
+        "day": 13
+      }
+    }
+  ],
+  "idEmprestimo": 0
 }

@@ -1,3 +1,12 @@
 {
-  "last_id": 2
+  "alItem": [
+    {
+      "autorLivro": "bingo",
+      "totPagLivro": 23,
+      "IdItem": 4,
+      "tituloItem": "llala",
+      "dispItem": "DISPONIVEL"
+    }
+  ],
+  "last_id": 4
 }

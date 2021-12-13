@@ -10,4 +10,11 @@ public abstract class Item {
 		this.IdItem = id;
 		this.dispItem = Disponibilidade.DISPONIVEL;
 	}	
+
+	public String getTituloItem() {
+		return tituloItem;
+	}
+	public int getIdItem() {
+		return IdItem;
+	}
 }

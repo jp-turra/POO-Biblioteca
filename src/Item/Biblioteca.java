@@ -64,6 +64,10 @@ public class Biblioteca {
 		}
 		this.last_id++;
 	}
+
+	public ArrayList<Item> getAlItem() {
+		return alItem;
+	}
 	// m�todos, getters, setters, toString, compareTo etc conforme
 	// a modelagem e encapsulamento que a equipe decidir implementar
 	// v�rias op��es

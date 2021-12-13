@@ -47,6 +47,10 @@ public class App {
 					break;
 				case 3:
 					// Cadastrar Emprestimo
+					int item_id = mostrarMenuBiblioteca(scanner);
+					int amigo_id = mostrarMenuAmigos(scanner);
+					
+					emprestimos.registrar(item_id, amigo_id);
 					break;
 				case 4:
 					// Cadastrar Devolução
@@ -81,5 +85,25 @@ public class App {
 		System.out.println("\n7) Mostrar itens da biblioteca");
 		System.out.println("\n0) Sair");
 		System.out.println("\nSelecione uma opção: ");
+	}
+	public static int mostrarMenuBiblioteca(Scanner scanner) {
+		System.out.println("\n****************************************************\n");
+		System.out.println("Itens disponíveis: ");
+		for (int i = 1; i <= biblioteca.getAlItem().size(); i++) {
+			System.out.println("\n"+String.valueOf(i)+") "+biblioteca.getAlItem().get(i-1).getTituloItem());
+		}
+		System.out.println("\nSelecione uma opção: ");
+		int id = Integer.parseInt(scanner.nextLine());
+		return biblioteca.getAlItem().get(id-1).getIdItem();
+	}
+	public static int mostrarMenuAmigos(Scanner scanner) {
+		System.out.println("\n****************************************************\n");
+		System.out.println("Amigos disponíveis: ");
+		for (int i = 1; i <= amigos.getListaAmigos().size(); i++) {
+			System.out.println("\n"+String.valueOf(i)+") "+amigos.getListaAmigos().get(i-1).getNomeAmigo());
+		}
+		System.out.println("\nSelecione uma opção: ");
+		int id = Integer.parseInt(scanner.nextLine());
+		return amigos.getListaAmigos().get(id-1).getIdAmigo();
 	}
 }
