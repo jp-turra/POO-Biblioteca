@@ -1,0 +1,13 @@
+{
+  "alAmigos": [
+    {
+      "idAmigo": 1,
+      "nomeAmigo": "Jorge"
+    },
+    {
+      "idAmigo": 2,
+      "nomeAmigo": "Alves"
+    }
+  ],
+  "last_id": 2
+}

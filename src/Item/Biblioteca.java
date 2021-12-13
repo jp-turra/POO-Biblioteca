@@ -11,8 +11,8 @@ public class Biblioteca {
 		this.nomeBib = nomeBib;
 		this.alItem = new ArrayList<Item>(); 
 	}
-
-	// métodos, getters, setters, toString, compareTo etc conforme
+	
+	// mï¿½todos, getters, setters, toString, compareTo etc conforme
 	// a modelagem e encapsulamento que a equipe decidir implementar
-	// várias opções
+	// vï¿½rias opï¿½ï¿½es
 }
