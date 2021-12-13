@@ -7,7 +7,11 @@
     {
       "idAmigo": 2,
       "nomeAmigo": "Alves"
+    },
+    {
+      "idAmigo": 3,
+      "nomeAmigo": "turra"
     }
   ],
-  "last_id": 2
+  "last_id": 3
 }

@@ -16,7 +16,7 @@ public class ListaAmigos {
 		int idAmigo = this.getLast_id()+1;
 		Amigo amigo = new Amigo(idAmigo, nome);
 		alAmigos.add(amigo);
-		this.sort();
+		// this.sort();
 		this.last_id = idAmigo;
 		return idAmigo;
 	}
@@ -24,9 +24,9 @@ public class ListaAmigos {
 	public ArrayList<Amigo> getListaAmigos(){
 		return alAmigos;
 	}
-	public void sort() {
-		this.alAmigos.sort(null);
-	}
+	// public void sort() {
+	// 	this.alAmigos.sort(null);
+	// }
 	// getters e setters
 	public int getLast_id() {
 		return last_id;

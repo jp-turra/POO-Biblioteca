@@ -21,7 +21,7 @@ public class App {
 		emprestimos = armazenamento.get_lista_emprestimo();
 		biblioteca = armazenamento.get_biblioteca();
 		ArrayList<Amigo> alAmigos = amigos.getListaAmigos();
-		
+
 		Scanner scanner = new Scanner(System.in);		
 		do {
 			try {
@@ -40,7 +40,10 @@ public class App {
 					biblioteca.adicionarItem();
 					break;
 				case 2:
-					// Cadastrar Amigo
+					// Cadastrar Amigo - Rede de Predição
+					System.out.println("\nInsira o nome do seu amigo: ");
+					String nome = scanner.nextLine();
+					amigos.addAmigo(nome);
 					break;
 				case 3:
 					// Cadastrar Emprestimo

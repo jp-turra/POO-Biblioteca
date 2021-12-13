@@ -1,26 +1,3 @@
 {
-  "alItem": [
-    {
-      "autorLivro": "LALALAL",
-      "totPagLivro": 123,
-      "IdItem": 3,
-      "tituloItem": "Teste123",
-      "dispItem": "DISPONIVEL"
-    },
-    {
-      "duracao": 98,
-      "autor": "LLLLL",
-      "IdItem": 4,
-      "tituloItem": "ASDC",
-      "dispItem": "DISPONIVEL"
-    },
-    {
-      "tema": "asdvcxv",
-      "totalMinutos": 234,
-      "IdItem": 5,
-      "tituloItem": "fdg",
-      "dispItem": "DISPONIVEL"
-    }
-  ],
-  "last_id": 5
+  "last_id": 2
 }
