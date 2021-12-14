@@ -11,6 +11,10 @@ public abstract class Item {
 		this.dispItem = Disponibilidade.DISPONIVEL;
 	}	
 
+	public void alterarDisponibilidade(int disponibilidade) {
+		Disponibilidade d = this.dispItem.setDisponibilidade(disponibilidade);
+		if (d != null) this.dispItem = d;
+	}
 	public String getTituloItem() {
 		return tituloItem;
 	}

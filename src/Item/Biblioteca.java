@@ -5,12 +5,11 @@ import java.util.Scanner;
 public class Biblioteca {
 
 	private String nomeBib;
-	private ArrayList<Item> alItem;
+	private ArrayList<Item> alItem = new ArrayList<Item>();;
 	private int last_id = 0;
 
 	public Biblioteca(String nomeBib) {
 		this.nomeBib = nomeBib;
-		this.alItem = new ArrayList<Item>();
 	}
 	
 	public void adicionarItem() {
@@ -66,7 +65,13 @@ public class Biblioteca {
 	}
 
 	public ArrayList<Item> getAlItem() {
-		return alItem;
+		return this.alItem;
+	}
+	public Item getItem(int itemId) {
+		for (Item i : this.alItem) {
+			if (i.getIdItem() == itemId) return i;
+		}
+		return null;
 	}
 	// m�todos, getters, setters, toString, compareTo etc conforme
 	// a modelagem e encapsulamento que a equipe decidir implementar

@@ -2,6 +2,8 @@ package Emprestimo;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import Item.Item;
+
 public class ListaEmprestimos {
 
 	private ArrayList<Emprestimo> alEmprestimos;
@@ -14,17 +16,25 @@ public class ListaEmprestimos {
 	
 	public void registrar(int item_id, int amigo_id) {
 		Emprestimo emprestimo = new Emprestimo(item_id, amigo_id, this.last_id+1);
+		Item item = emprestimo.getItem();
+		item.alterarDisponibilidade(3); // Empretado
 		this.alEmprestimos.add(emprestimo);
 		this.last_id ++;
 	}
 	
 	public void devolver(int item_id) {
 		for (int i = 0; i < this.alEmprestimos.size(); i++) {
-			Emprestimo item = this.alEmprestimos.get(i);
-			if (item.itemEstaEmprestado() == true && item.getIdItem() == item_id) {
-				item.setDataDevolucao(LocalDate.now());
+			Emprestimo emprestimo = this.alEmprestimos.get(i);
+			if (emprestimo.itemEstaEmprestado() == true && emprestimo.getIdItem() == item_id) {
+				emprestimo.setDataDevolucao(LocalDate.now());
 			}
+			Item item = emprestimo.getItem();
+			item.alterarDisponibilidade(1);
 		}
+	}
+
+	public ArrayList<Emprestimo> getAlEmprestimos() {
+		return alEmprestimos;
 	}
 	// construtor
 	// getters e setters

@@ -17,7 +17,7 @@ public class App {
 
     public static void main(String[] args) throws Exception {
 
-		amigos = (ListaAmigos) armazenamento.db_seed_amigos(amigos);
+		amigos = (ListaAmigos) armazenamento.db_seed_amigos();
 		emprestimos = armazenamento.get_lista_emprestimo();
 		biblioteca = armazenamento.get_biblioteca();
 
@@ -52,13 +52,13 @@ public class App {
 				int id = Integer.parseInt(scanner.nextLine());
 				emprestimos.devolver(id);
 				System.out.println(emprestimos);
-			} else if (menu == 5) {
+			} /* else if (menu == 5) {
 				// Mostrar Itens emprestados atualmente
 			} else if (menu == 6) {
 				// Mostrar histórico de emprestimos
 			} else if (menu == 7) {
 				// Mostrar itens da biblioteca
-			}
+			} */
 			armazenamento.set_table("biblioteca", biblioteca);
 			armazenamento.set_table("lista_amigo", amigos);
 			armazenamento.set_table("lista_emprestimo", emprestimos);

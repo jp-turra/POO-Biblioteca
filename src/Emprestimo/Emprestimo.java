@@ -2,6 +2,7 @@ package Emprestimo;
 import java.time.LocalDate;
 
 import Amigo.Amigo;
+import Armazenamento.Armazenamento;
 import Item.Item;
 
 public class Emprestimo {
@@ -27,6 +28,9 @@ public class Emprestimo {
 	}
 	public int getIdItem() {
 		return idItem;
+	}
+	public Item getItem() {
+		return new Armazenamento().get_biblioteca().getItem(idItem);
 	}
 	public void setDataDevolucao(LocalDate dataDevolucao) {
 		this.dataDevolucao = dataDevolucao;
