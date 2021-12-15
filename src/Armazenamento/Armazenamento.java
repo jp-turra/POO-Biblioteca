@@ -61,6 +61,32 @@ public class Armazenamento {
         return table_amigos;
     }
 
+    public Biblioteca db_seed_biblioteca() {
+        String tabela = "biblioteca";
+        Biblioteca table_biblioteca = this.get_biblioteca();
+        if (table_biblioteca.getAlItem().size() == 0) {
+            Livro livro = new Livro("Buracos Negros", "Stephen Hawking", 65, 0);
+            livro.alterarDisponibilidade(Disponibilidade.EMPRESTADO);
+            Dvd dvd = new Dvd("FarCry 3", "Ubisoft", 600, 1);
+            Documentario documentario = new Documentario("A Era dos Dados", "Netflix", 264, 2);
+            table_biblioteca.setarItem(livro);
+            table_biblioteca.setarItem(dvd);
+            table_biblioteca.setarItem(documentario);
+            this.set_table(tabela, table_biblioteca);
+        }
+        return table_biblioteca;
+    }
+
+    public ListaEmprestimos db_seed_emprestimos() {
+        String tabela = "lista_emprestimo";
+        ListaEmprestimos table_emprestimos = this.get_lista_emprestimo();
+        if (table_emprestimos.getAlEmprestimos().size() == 0) {
+            table_emprestimos.registrar(0, 1);
+            this.set_table(tabela, table_emprestimos);
+        }
+        return table_emprestimos;
+    }
+
     public ListaAmigos get_lista_amigos() {
         try {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();

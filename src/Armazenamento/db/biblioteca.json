@@ -2,17 +2,24 @@
   "nomeBib": "Biblioteca Pessoal",
   "alItem": [
     {
-      "tema": "Filme-Critica",
-      "totalMinutos": 120,
-      "IdItem": 3,
-      "tituloItem": "Alice no pais da maravilhas",
+      "tema": "Netflix",
+      "totalMinutos": 264,
+      "IdItem": 2,
+      "tituloItem": "A Era dos Dados",
+      "dispItem": "EMPRESTADO"
+    },
+    {
+      "autorLivro": "Stephen Hawking",
+      "totPagLivro": 65,
+      "IdItem": 0,
+      "tituloItem": "Buracos Negros",
       "dispItem": "DISPONIVEL"
     },
     {
-      "autorLivro": "AObs",
-      "totPagLivro": 249,
-      "IdItem": 0,
-      "tituloItem": "O Curioso Caso de Benjamin Button",
+      "tema": "Viagem Estelar",
+      "totalMinutos": 250,
+      "IdItem": 3,
+      "tituloItem": "Inspiration4",
       "dispItem": "EMPRESTADO"
     }
   ],

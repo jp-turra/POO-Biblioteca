@@ -17,9 +17,9 @@ public class App {
 
 	public static void main(String[] args) throws Exception {
 
-		amigos = (ListaAmigos) armazenamento.db_seed_amigos();
-		emprestimos = armazenamento.get_lista_emprestimo();
-		biblioteca = armazenamento.get_biblioteca();
+		amigos = armazenamento.db_seed_amigos();
+		biblioteca = armazenamento.db_seed_biblioteca();
+		emprestimos = armazenamento.db_seed_emprestimos();
 
 		Scanner scanner = new Scanner(System.in);
 		do {

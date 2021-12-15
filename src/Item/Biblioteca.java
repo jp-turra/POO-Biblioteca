@@ -92,6 +92,11 @@ public class Biblioteca {
 		}
 	}
 
+	public void setarItem(Item item) {
+		this.alItem.add(item);
+		this.last_id++;
+	}
+
 	public class SortByName implements Comparator<Item> {
 		@Override
 		public int compare(Item item, Item item1) {
