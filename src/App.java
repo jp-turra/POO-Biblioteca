@@ -26,7 +26,7 @@ public class App {
 				menu = Integer.parseInt(scanner.nextLine());
 			} catch (Exception e) {
 				System.out.println("Entrada Inválida, tente novamente.");
-				menu = 8;
+				menu = 9;
 			}
 			if (menu == 0) {
 				System.out.println("Até logo!!");
