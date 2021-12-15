@@ -68,7 +68,10 @@ public class App {
 				emprestimos.mostrarHistorico(id);
 			} else if (menu == 7) {
 				// Mostrar itens da biblioteca
+				System.out.println("\n****************************************************\n");
 				System.out.println(biblioteca.toString());
+			} else if (menu == 8) {
+				mostrarMenuDisponibilidade(scanner);
 			}
 
 			armazenamento.set_table("lista_amigo", amigos);
@@ -81,13 +84,14 @@ public class App {
 	public static void mostrarMenu() {
 		System.out.println("\n****************************************************\n");
 		System.out.println("\n1) Cadastrar novo item");
-		System.out.println("\n2) Cadastrar um amigo");
-		System.out.println("\n3) Cadastrar um empréstimo");
-		System.out.println("\n4) Cadastrar uma devolução");
-		System.out.println("\n5) Mostrar itens emprestados");
-		System.out.println("\n6) Mostrar histórico de empréstimos");
-		System.out.println("\n7) Mostrar itens da biblioteca");
-		System.out.println("\n0) Sair");
+		System.out.println("2) Cadastrar um amigo");
+		System.out.println("3) Cadastrar um empréstimo");
+		System.out.println("4) Cadastrar uma devolução");
+		System.out.println("5) Mostrar itens emprestados");
+		System.out.println("6) Mostrar histórico de empréstimos");
+		System.out.println("7) Mostrar itens da biblioteca");
+		System.out.println("8) Mudar disponibilidade de um item");
+		System.out.println("0) Sair");
 		System.out.println("\nSelecione uma opção: ");
 	}
 
@@ -121,5 +125,40 @@ public class App {
 		System.out.println("\nSelecione uma opção: ");
 		int id = Integer.parseInt(scanner.nextLine());
 		return amigos.getListaAmigos().get(id - 1).getIdAmigo();
+	}
+
+	public static void mostrarMenuDisponibilidade(Scanner scanner) {
+		System.out.println("\nInsira o id do item emprestado: ");
+		int id = Integer.parseInt(scanner.nextLine());
+		Item item = biblioteca.getItem(id);
+		if (item == null) {
+			System.out.println("\nITEM NÃO ENCONTRADO!");
+			return;
+		}
+		System.out.println("Selecionae uma opção: ");
+		String s = "";
+		boolean liberado = true;
+		for (Disponibilidade d : Disponibilidade.values()) {
+			if (!(item.getDispItem().compareTo(Disponibilidade.EMPRESTADO) == 0
+					&& d.compareTo(Disponibilidade.CONSULTALOCAL) == 0))
+				s += String.valueOf(d.getValor()) + ") " + d.name() + "\n";
+			else
+				liberado = false;
+		}
+		System.out.println(s);
+		try {
+			id = Integer.parseInt(scanner.nextLine());
+			if (!liberado && Disponibilidade.CONSULTALOCAL.getValor() == id) {
+				System.out.println("Opção inválida!");
+				return;
+			}
+			Disponibilidade d = item.getDispItem().getDisponibilidade(id);
+			System.out.println(d.name());
+			item.alterarDisponibilidade(d);
+			biblioteca.setDisponibilidadeItem(item);
+		} catch (Exception e) {
+			System.out.println("Operação inválida");
+			e.printStackTrace();
+		}
 	}
 }
