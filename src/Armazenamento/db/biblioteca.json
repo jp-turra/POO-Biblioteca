@@ -1,0 +1,13 @@
+{
+  "nomeBib": "Biblioteca Pessoal",
+  "alItem": [
+    {
+      "autorLivro": "AObs",
+      "totPagLivro": 249,
+      "IdItem": 0,
+      "tituloItem": "O Curioso Caso de Benjamin Button",
+      "dispItem": "EMPRESTADO"
+    }
+  ],
+  "last_id": 1
+}

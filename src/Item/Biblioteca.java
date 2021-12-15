@@ -1,4 +1,5 @@
 package Item;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,7 +12,13 @@ public class Biblioteca {
 	public Biblioteca(String nomeBib) {
 		this.nomeBib = nomeBib;
 	}
-	
+
+	public Biblioteca(String nomeBib, ArrayList<Item> itens, int lastId) {
+		this.nomeBib = nomeBib;
+		this.alItem = itens;
+		this.last_id = lastId;
+	}
+
 	public void adicionarItem() {
 		Scanner scanner = new Scanner(System.in);
 		// Adicionar Livro, Dvd ou Documentario
@@ -34,32 +41,32 @@ public class Biblioteca {
 				System.out.println("\nInsira a quantia total de páginas: ");
 				int duracao = Integer.parseInt(scanner.nextLine());
 
-				Livro livro = new Livro(titulo, autor, duracao, this.last_id+1);
+				Livro livro = new Livro(titulo, autor, duracao, this.last_id);
 				alItem.add(livro);
-			break;
+				break;
 			case 2:
 				// DVD
 				System.out.println("\nInsira o nome do autor: ");
 				autor = scanner.nextLine();
 				System.out.println("\nInsira o tempo de duração: ");
 				duracao = Integer.parseInt(scanner.nextLine());
-				
-				Dvd dvd = new Dvd(titulo, autor, duracao, this.last_id+1);
+
+				Dvd dvd = new Dvd(titulo, autor, duracao, this.last_id);
 				alItem.add(dvd);
-			break;
+				break;
 			case 3:
 				// DVD
 				System.out.println("\nInsira o tema: ");
 				String tema = scanner.nextLine();
 				System.out.println("\nInsira o tempo de duração: ");
 				duracao = Integer.parseInt(scanner.nextLine());
-				
-				Documentario documentario = new Documentario(titulo, tema, duracao, this.last_id+1);
+
+				Documentario documentario = new Documentario(titulo, tema, duracao, this.last_id);
 				alItem.add(documentario);
-			break;
+				break;
 			default:
 				System.out.println("\nOpção inválida");
-			break;
+				break;
 		}
 		this.last_id++;
 	}
@@ -67,12 +74,22 @@ public class Biblioteca {
 	public ArrayList<Item> getAlItem() {
 		return this.alItem;
 	}
+
 	public Item getItem(int itemId) {
 		for (Item i : this.alItem) {
-			if (i.getIdItem() == itemId) return i;
+			if (i.getIdItem() == itemId)
+				return i;
 		}
 		return null;
 	}
+
+	public void setDisponibilidadeItem(Item item) {
+		for (Item i : this.alItem) {
+			if (i.getIdItem() == item.getIdItem())
+				i.alterarDisponibilidade(item.getDispItem());
+		}
+	}
+
 	// m�todos, getters, setters, toString, compareTo etc conforme
 	// a modelagem e encapsulamento que a equipe decidir implementar
 	// v�rias op��es

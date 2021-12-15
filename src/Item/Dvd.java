@@ -1,4 +1,5 @@
 package Item;
+
 public class Dvd extends Item {
 
     public int duracao;
@@ -9,5 +10,4 @@ public class Dvd extends Item {
         this.duracao = duracaoMinutos;
         this.autor = autor;
     }
-
 }
