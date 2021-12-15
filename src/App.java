@@ -68,7 +68,7 @@ public class App {
 				emprestimos.mostrarHistorico(id);
 			} else if (menu == 7) {
 				// Mostrar itens da biblioteca
-				biblioteca.toString();
+				System.out.println(biblioteca.toString());
 			}
 
 			armazenamento.set_table("lista_amigo", amigos);
@@ -85,8 +85,8 @@ public class App {
 		System.out.println("\n3) Cadastrar um empréstimo");
 		System.out.println("\n4) Cadastrar uma devolução");
 		System.out.println("\n5) Mostrar itens emprestados");
-		// System.out.println("\n6) Mostrar histórico de empréstimos");
-		// System.out.println("\n7) Mostrar itens da biblioteca");
+		System.out.println("\n6) Mostrar histórico de empréstimos");
+		System.out.println("\n7) Mostrar itens da biblioteca");
 		System.out.println("\n0) Sair");
 		System.out.println("\nSelecione uma opção: ");
 	}

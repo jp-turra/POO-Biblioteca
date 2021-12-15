@@ -2,6 +2,20 @@
   "nomeBib": "Biblioteca Pessoal",
   "alItem": [
     {
+      "tema": "Filme-Critica",
+      "totalMinutos": 120,
+      "IdItem": 3,
+      "tituloItem": "Alice no pais da maravilhas",
+      "dispItem": "DISPONIVEL"
+    },
+    {
+      "duracao": 60,
+      "autor": "Author",
+      "IdItem": 2,
+      "tituloItem": "Music",
+      "dispItem": "DISPONIVEL"
+    },
+    {
       "autorLivro": "AObs",
       "totPagLivro": 249,
       "IdItem": 0,
@@ -9,5 +23,5 @@
       "dispItem": "EMPRESTADO"
     }
   ],
-  "last_id": 1
+  "last_id": 4
 }

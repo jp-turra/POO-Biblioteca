@@ -1,6 +1,8 @@
 package Item;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Biblioteca {
@@ -90,7 +92,23 @@ public class Biblioteca {
 		}
 	}
 
-	// m�todos, getters, setters, toString, compareTo etc conforme
-	// a modelagem e encapsulamento que a equipe decidir implementar
-	// v�rias op��es
+	public class SortByName implements Comparator<Item> {
+		@Override
+		public int compare(Item item, Item item1) {
+			// TODO Auto-generated method stub
+			return item.getTituloItem().compareTo(item1.getTituloItem());
+		}
+
+	}
+
+	@Override
+	public String toString() {
+		String s = "";
+		ArrayList<Item> itens = this.getAlItem();
+		Collections.sort(itens, new SortByName());
+		for (Item item : itens) {
+			s += item.getTituloItem() + " - " + item.getDispItem() + "\n";
+		}
+		return s;
+	}
 }
