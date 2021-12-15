@@ -1,5 +1,3 @@
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import Amigo.*;
@@ -128,7 +126,7 @@ public class App {
 	}
 
 	public static void mostrarMenuDisponibilidade(Scanner scanner) {
-		System.out.println("\nInsira o id do item emprestado: ");
+		System.out.println("\nInsira o id do item: ");
 		int id = Integer.parseInt(scanner.nextLine());
 		Item item = biblioteca.getItem(id);
 		if (item == null) {

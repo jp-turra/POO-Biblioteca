@@ -64,7 +64,7 @@ public class Emprestimo {
 				+ " - Alugado em: "
 				+ this.getDataEmprestimo().format(formatter);
 		if (!this.itemEstaEmprestado())
-			s += "até " + this.getDataDevolucao().format(formatter);
+			s += " até " + this.getDataDevolucao().format(formatter);
 		return s;
 	}
 }

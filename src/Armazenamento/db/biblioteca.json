@@ -6,7 +6,7 @@
       "totalMinutos": 264,
       "IdItem": 2,
       "tituloItem": "A Era dos Dados",
-      "dispItem": "EMPRESTADO"
+      "dispItem": "DISPONIVEL"
     },
     {
       "autorLivro": "Stephen Hawking",
@@ -16,10 +16,10 @@
       "dispItem": "DISPONIVEL"
     },
     {
-      "tema": "Viagem Estelar",
-      "totalMinutos": 250,
+      "tema": "Positividade",
+      "totalMinutos": 210,
       "IdItem": 3,
-      "tituloItem": "Inspiration4",
+      "tituloItem": "Sim",
       "dispItem": "EMPRESTADO"
     }
   ],
