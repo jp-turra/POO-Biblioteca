@@ -1,13 +1,8 @@
 package Emprestimo;
 
-import java.text.DateFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-import javax.swing.text.DateFormatter;
-
-import Armazenamento.Armazenamento;
 import Item.Disponibilidade;
 import Item.Item;
 
@@ -19,6 +14,12 @@ public class ListaEmprestimos {
 	public ListaEmprestimos() {
 		super();
 		this.alEmprestimos = new ArrayList<Emprestimo>();
+	}
+
+	public ListaEmprestimos(ArrayList<Emprestimo> emprestimos, int lastId) {
+		super();
+		this.alEmprestimos = emprestimos;
+		this.last_id = lastId;
 	}
 
 	public Item registrar(int item_id, int amigo_id) {

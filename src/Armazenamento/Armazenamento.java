@@ -18,6 +18,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import Amigo.ListaAmigos;
+import Emprestimo.Emprestimo;
 import Emprestimo.ListaEmprestimos;
 import Item.Biblioteca;
 import Item.Disponibilidade;
@@ -108,15 +109,26 @@ public class Armazenamento {
     public ListaEmprestimos get_lista_emprestimo() {
         try {
             Gson gson = new Gson();
-            ListaEmprestimos arrayList = gson.fromJson(
-                    new FileReader(this.projectPath + "/src/Armazenamento/db/lista_emprestimo.json"),
-                    ListaEmprestimos.class);
-            if (arrayList == null) {
+            JsonObject jsonObject = JsonParser
+                    .parseReader(new FileReader(this.projectPath + "/src/Armazenamento/db/lista_emprestimo.json"))
+                    .getAsJsonObject();
+            if (jsonObject == null) {
                 ListaEmprestimos emprestimos = new ListaEmprestimos();
                 this.set_table("lista_emprestimo", emprestimos);
                 return emprestimos;
             }
-            return arrayList;
+            int lastId = jsonObject.get("last_id").getAsInt();
+            JsonArray jsonArray = jsonObject.getAsJsonArray("alEmprestimos");
+            ArrayList<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
+            if (jsonArray.size() > 0) {
+                for (int i = 0; i < jsonArray.size(); i++) {
+                    Emprestimo emprestimo = gson.fromJson(jsonArray.get(i), Emprestimo.class);
+                    if (emprestimo != null)
+                        emprestimos.add(emprestimo);
+                }
+            }
+            ListaEmprestimos listaEmprestimos = new ListaEmprestimos(emprestimos, lastId);
+            return listaEmprestimos;
         } catch (Exception e) {
             System.out.println("\nArquivo não encontrado\n");
             System.out.println(e);
