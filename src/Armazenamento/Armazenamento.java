@@ -4,16 +4,12 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -151,43 +147,42 @@ public class Armazenamento {
             int last_id = jsonObject.get("last_id").getAsInt();
             JsonArray jsonArray = jsonObject.get("alItem").getAsJsonArray();
             ArrayList<Item> itens = new ArrayList<Item>();
-            if (jsonArray.size() > 0)
-                for (int i = 0; i < jsonArray.size(); i++) {
-                    JsonObject itemObj = jsonArray.get(i).getAsJsonObject();
-                    ArrayList<String> keys = new ArrayList<String>(itemObj.keySet());
-                    String key = keys.get(0);
-                    String titulo = itemObj.get("tituloItem").getAsString();
-                    int id = itemObj.get("IdItem").getAsInt();
-                    Disponibilidade disponibilidade = null;
-                    if (itemObj.get("dispItem") != null)
-                        disponibilidade = gson.fromJson(itemObj.get("dispItem"), Disponibilidade.class);
+            for (int i = 0; i < jsonArray.size(); i++) {
+                JsonObject itemObj = jsonArray.get(i).getAsJsonObject();
+                ArrayList<String> keys = new ArrayList<String>(itemObj.keySet());
+                String key = keys.get(0);
+                String titulo = itemObj.get("tituloItem").getAsString();
+                int id = itemObj.get("IdItem").getAsInt();
+                Disponibilidade disponibilidade = null;
+                if (itemObj.get("dispItem") != null)
+                    disponibilidade = gson.fromJson(itemObj.get("dispItem"), Disponibilidade.class);
 
-                    switch (key) {
-                        case "autorLivro":
-                            String extra = itemObj.get("autorLivro").getAsString();
-                            int quantidade = itemObj.get("totPagLivro").getAsInt();
-                            Livro livro = new Livro(titulo, extra, quantidade, id);
-                            livro.alterarDisponibilidade(disponibilidade);
-                            itens.add(livro);
-                            break;
-                        case "autor":
-                            extra = itemObj.get("autor").getAsString();
-                            quantidade = itemObj.get("duracao").getAsInt();
-                            Dvd dvd = new Dvd(titulo, extra, quantidade, id);
-                            dvd.alterarDisponibilidade(disponibilidade);
-                            itens.add(dvd);
-                            break;
-                        case "tema":
-                            extra = itemObj.get("tema").getAsString();
-                            quantidade = itemObj.get("totalMinutos").getAsInt();
-                            Documentario documentario = new Documentario(titulo, extra, quantidade, id);
-                            documentario.alterarDisponibilidade(disponibilidade);
-                            itens.add(documentario);
-                            break;
-                        default:
-                            break;
-                    }
+                switch (key) {
+                    case "autorLivro":
+                        String extra = itemObj.get("autorLivro").getAsString();
+                        int quantidade = itemObj.get("totPagLivro").getAsInt();
+                        Livro livro = new Livro(titulo, extra, quantidade, id);
+                        livro.alterarDisponibilidade(disponibilidade);
+                        itens.add(livro);
+                        break;
+                    case "autor":
+                        extra = itemObj.get("autor").getAsString();
+                        quantidade = itemObj.get("duracao").getAsInt();
+                        Dvd dvd = new Dvd(titulo, extra, quantidade, id);
+                        dvd.alterarDisponibilidade(disponibilidade);
+                        itens.add(dvd);
+                        break;
+                    case "tema":
+                        extra = itemObj.get("tema").getAsString();
+                        quantidade = itemObj.get("totalMinutos").getAsInt();
+                        Documentario documentario = new Documentario(titulo, extra, quantidade, id);
+                        documentario.alterarDisponibilidade(disponibilidade);
+                        itens.add(documentario);
+                        break;
+                    default:
+                        break;
                 }
+            }
             Biblioteca biblioteca = new Biblioteca(nome, itens, last_id);
             this.set_table("biblioteca", biblioteca);
             return biblioteca;
