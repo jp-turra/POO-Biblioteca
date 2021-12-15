@@ -13,6 +13,7 @@ import java.util.Set;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -70,8 +71,6 @@ public class Armazenamento {
                 this.set_table("lista_amigo", amigos);
                 return amigos;
             }
-            System.out.println("Amigos: ");
-            System.out.println(arrayList.getListaAmigos().size());
             return arrayList;
         } catch (Exception e) {
             System.out.println("\nArquivo não encontrado\n");
@@ -91,8 +90,6 @@ public class Armazenamento {
                 this.set_table("lista_emprestimo", emprestimos);
                 return emprestimos;
             }
-            System.out.println("Emprestimos: ");
-            System.out.println(arrayList.getAlEmprestimos().size());
             return arrayList;
         } catch (Exception e) {
             System.out.println("\nArquivo não encontrado\n");
@@ -135,16 +132,16 @@ public class Armazenamento {
                             livro.alterarDisponibilidade(disponibilidade);
                             itens.add(livro);
                             break;
-                        case "autorDvd":
-                            extra = itemObj.get("autorDvd").getAsString();
-                            quantidade = itemObj.get("duracaoDvd").getAsInt();
+                        case "autor":
+                            extra = itemObj.get("autor").getAsString();
+                            quantidade = itemObj.get("duracao").getAsInt();
                             Dvd dvd = new Dvd(titulo, extra, quantidade, id);
                             dvd.alterarDisponibilidade(disponibilidade);
                             itens.add(dvd);
                             break;
-                        case "temaDocumentario":
-                            extra = itemObj.get("temaDocumentario").getAsString();
-                            quantidade = itemObj.get("totalMinutosDocumentario").getAsInt();
+                        case "tema":
+                            extra = itemObj.get("tema").getAsString();
+                            quantidade = itemObj.get("totalMinutos").getAsInt();
                             Documentario documentario = new Documentario(titulo, extra, quantidade, id);
                             documentario.alterarDisponibilidade(disponibilidade);
                             itens.add(documentario);

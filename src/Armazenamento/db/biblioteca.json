@@ -9,13 +9,6 @@
       "dispItem": "DISPONIVEL"
     },
     {
-      "duracao": 60,
-      "autor": "Author",
-      "IdItem": 2,
-      "tituloItem": "Music",
-      "dispItem": "DISPONIVEL"
-    },
-    {
       "autorLivro": "AObs",
       "totPagLivro": 249,
       "IdItem": 0,
