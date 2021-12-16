@@ -1,14 +1,9 @@
 {
   "alEmprestimos": [
     {
-      "idAmigo": 1,
-      "idItem": 0,
+      "idAmigo": 3,
+      "idItem": 2,
       "dataEmprestimo": {
-        "year": 2021,
-        "month": 12,
-        "day": 15
-      },
-      "dataDevolucao": {
         "year": 2021,
         "month": 12,
         "day": 15
@@ -16,9 +11,14 @@
       "idEmprestimo": 1
     },
     {
-      "idAmigo": 3,
-      "idItem": 3,
+      "idAmigo": 2,
+      "idItem": 0,
       "dataEmprestimo": {
+        "year": 2021,
+        "month": 12,
+        "day": 15
+      },
+      "dataDevolucao": {
         "year": 2021,
         "month": 12,
         "day": 15

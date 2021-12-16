@@ -34,15 +34,15 @@ public class ListaEmprestimos {
 	public Item devolver(int item_id) {
 		for (int i = 0; i < this.alEmprestimos.size(); i++) {
 			Emprestimo emprestimo = this.alEmprestimos.get(i);
-			if (emprestimo.itemEstaEmprestado() == true && emprestimo.getIdItem() == item_id) {
+			if (emprestimo.itemEstaEmprestado() && emprestimo.getIdItem() == item_id) {
 				emprestimo.setDataDevolucao(LocalDate.now());
+				Item item = emprestimo.getItem();
+				if (item != null) {
+					item.alterarDisponibilidade(Disponibilidade.DISPONIVEL);
+					return item;
+				} else
+					System.out.println("ITEM NÃO IDENTIFICADO");
 			}
-			Item item = emprestimo.getItem();
-			if (item != null) {
-				item.alterarDisponibilidade(Disponibilidade.DISPONIVEL);
-				return item;
-			} else
-				System.out.println("ITEM NÃO IDENTIFICADO");
 		}
 		return null;
 	}
